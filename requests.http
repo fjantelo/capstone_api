@@ -54,3 +54,26 @@ Content-Type: application/json
 
 ### Delete Songs Destroy
 DELETE http://localhost:3000/songs/8
+
+
+
+
+### Users create (signup)
+POST http://localhost:3000/users.json
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "email": "alex@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "alex@test.com",
+  "password": "password"
+}

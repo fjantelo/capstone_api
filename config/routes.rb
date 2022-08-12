@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   post "/songs" => "songs#create"
   patch "/songs/:id" => "songs#update"
   delete "/songs/:id" => "songs#destroy"
+
+  # User routes
+  post "/users" => "users#create"
+
+  # Session routes
+  post "/sessions" => "sessions#create"
 end
