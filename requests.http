@@ -23,3 +23,34 @@ Content-Type: application/json
 
 ### Delete Playlists Destroy
 DELETE http://localhost:3000/playlists/5
+
+
+
+### Get Songs Index
+GET http://localhost:3000/songs
+
+### Get Songs Show
+GET http://localhost:3000/songs/1
+
+### Post Songs Create
+POST http://localhost:3000/songs
+Content-Type: application/json
+
+{
+  "title": "Cake By The Ocean",
+  "artist": "DNCE",
+  "album": "DNCE",
+  "genre": "Pop",
+  "url": "https://www.youtube.com/watch?v=vWaRiD5ym74"
+}
+
+### Patch Songs Update
+PATCH http://localhost:3000/songs/8
+Content-Type: application/json
+
+{
+  "genre": "Dance"
+}
+
+### Delete Songs Destroy
+DELETE http://localhost:3000/songs/8

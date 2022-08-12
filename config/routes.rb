@@ -5,4 +5,11 @@ Rails.application.routes.draw do
   post "/playlists" => "playlists#create"
   patch "/playlists/:id" => "playlists#update"
   delete "/playlists/:id" => "playlists#destroy"
+
+  # Song routes
+  get "/songs" => "songs#index"
+  get "/songs/:id" => "songs#show"
+  post "/songs" => "songs#create"
+  patch "/songs/:id" => "songs#update"
+  delete "/songs/:id" => "songs#destroy"
 end
