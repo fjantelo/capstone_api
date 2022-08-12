@@ -1,0 +1,25 @@
+### Get Playlists Index
+GET http://localhost:3000/playlists
+
+### Get Playlists Show
+GET http://localhost:3000/playlists/1
+
+### Post Playlists Create
+POST http://localhost:3000/playlists
+Content-Type: application/json
+
+{
+  "name": "Retro fusion folk",
+  "description": "Who even knows"
+}
+
+### Patch Playlists Update
+PATCH http://localhost:3000/playlists/6
+Content-Type: application/json
+
+{
+  "description": "Who even knows. I know I don't"
+}
+
+### Delete Playlists Destroy
+DELETE http://localhost:3000/playlists/5

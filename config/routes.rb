@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Playlist routes
+  get "/playlists" => "playlists#index"
+  get "/playlists/:id" => "playlists#show"
+  post "/playlists" => "playlists#create"
+  patch "/playlists/:id" => "playlists#update"
+  delete "/playlists/:id" => "playlists#destroy"
 end
