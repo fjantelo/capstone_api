@@ -1,4 +1,6 @@
 class PlaylistsController < ApplicationController
+  before_action :authenticate_user
+
   def index
     playlists = current_user.playlists
     render json: playlists.as_json
@@ -35,9 +37,9 @@ class PlaylistsController < ApplicationController
     end
   end
 
-  def destroy
-    playlist = current_user.playlists.find_by(id: params[:id])
-    playlist.destroy
-    render json: { "message": "Playlist successfully deleted." }
-  end
+  # def destroy
+  #   playlist = current_user.playlists.find_by(id: params[:id])
+  #   playlist.destroy
+  #   render json: { "message": "Playlist successfully deleted." }
+  # end
 end
