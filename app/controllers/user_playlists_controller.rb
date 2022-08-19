@@ -1,11 +1,8 @@
 class UserPlaylistsController < ApplicationController
-  def index
-    user_playlists = UserPlaylist.all
-    render json: user_playlists.as_json
-  end
+  before_action :authenticate_user
 
   def create
-    user_playlist = UserPlaylist.new(user_id: params[:user_id], playlist_id: params[:playlist_id])
+    user_playlist = UserPlaylist.new(user_id: User.find_by(email: params[:email]).id, playlist_id: params[:playlist_id])
     if user_playlist.save
       render json: user_playlist.as_json
     else

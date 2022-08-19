@@ -6,7 +6,7 @@ GET http://localhost:3000/playlists
 Authorization: Bearer {{jwt}}
 
 ### Get Playlists Show
-GET http://localhost:3000/playlists/7
+GET http://localhost:3000/playlists/8
 Authorization: Bearer {{jwt}}
 
 ### Post Playlists Create
@@ -19,29 +19,30 @@ Content-Type: application/json
   "description": "Who even knows"
 }
 
-### Patch Playlists Update
-PATCH http://localhost:3000/playlists/7
-Authorization: Bearer {{jwt}}
-Content-Type: application/json
+# ### Patch Playlists Update
+# PATCH http://localhost:3000/playlists/7
+# Authorization: Bearer {{jwt}}
+# Content-Type: application/json
 
-{
-  "description": "Who even knows. I know I don't"
-}
+# {
+#   "description": "What?"
+# }
 
-### Delete Playlists Destroy
-DELETE http://localhost:3000/playlists/7
-Authorization: Bearer {{jwt}}
+# ### Delete Playlists Destroy
+# DELETE http://localhost:3000/playlists/7
+# Authorization: Bearer {{jwt}}
 
 
 
-### Get Songs Index
-GET http://localhost:3000/songs
+# ### Get Songs Index
+# GET http://localhost:3000/songs
 
-### Get Songs Show
-GET http://localhost:3000/songs/1
+# ### Get Songs Show
+# GET http://localhost:3000/songs/1
 
 ### Post Songs Create
 POST http://localhost:3000/songs
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
@@ -49,19 +50,21 @@ Content-Type: application/json
   "artist": "DNCE",
   "album": "DNCE",
   "genre": "Pop",
-  "url": "https://www.youtube.com/watch?v=vWaRiD5ym74"
+  "url": "https://www.youtube.com/watch?v=vWaRiD5ym74",
+  "playlist_id": 8
 }
 
-### Patch Songs Update
-PATCH http://localhost:3000/songs/8
-Content-Type: application/json
+# ### Patch Songs Update
+# PATCH http://localhost:3000/songs/8
+# Content-Type: application/json
 
-{
-  "genre": "Dance"
-}
+# {
+#   "genre": "Dance"
+# }
 
 ### Delete Songs Destroy
-DELETE http://localhost:3000/songs/8
+DELETE http://localhost:3000/songs/11
+Authorization: Bearer {{jwt}}
 
 
 
@@ -71,8 +74,8 @@ POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "name": "Alex",
-  "email": "alex@test.com",
+  "name": "John",
+  "email": "john@test.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -82,6 +85,29 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "alex@test.com",
+  "email": "john@test.com",
   "password": "password"
 }
+
+# ### Post PlaylistSongs
+# POST http://localhost:3000/playlist_songs.json
+# Content-Type: application/json
+
+# {
+#   "playlist_id": 8,
+#   "song_id": 1
+# }
+
+### Post UserPlaylist
+POST http://localhost:3000/user_playlists
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "email": "joe@test.com",
+  "playlist_id": 8
+}
+
+### Delete UserPlaylist
+DELETE http://localhost:3000/user_playlists/7
+Authorization: Bearer {{jwt}}

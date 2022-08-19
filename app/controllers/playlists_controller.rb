@@ -8,7 +8,13 @@ class PlaylistsController < ApplicationController
 
   def show
     playlist = current_user.playlists.find_by(id: params[:id])
-    render json: playlist.as_json
+    songs = playlist.songs
+    users = playlist.users
+    output = []
+    output << playlist
+    output << songs
+    output << users
+    render json: output.as_json
   end
 
   def create
@@ -25,17 +31,17 @@ class PlaylistsController < ApplicationController
     end
   end
 
-  def update
-    playlist = current_user.playlists.find_by(id: params[:id])
-    playlist.name = params[:name] || playlist.name
-    playlist.description = params[:description] || playlist.description
-    if playlist.save
-      render json: playlist.as_json
-    else
-      render json: { "error": playlist.errors.full_messages },
-             status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   playlist = current_user.playlists.find_by(id: params[:id])
+  #   playlist.name = params[:name] || playlist.name
+  #   playlist.description = params[:description] || playlist.description
+  #   if playlist.save
+  #     render json: playlist.as_json
+  #   else
+  #     render json: { "error": playlist.errors.full_messages },
+  #            status: :unprocessable_entity
+  #   end
+  # end
 
   # def destroy
   #   playlist = current_user.playlists.find_by(id: params[:id])
