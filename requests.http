@@ -1,11 +1,17 @@
+### Example JWT
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjEwMTQ4MTh9.slujmDPnsZvSNSVCXXBeFUosPcdPPU40ClGfLxaU6Ok
+
 ### Get Playlists Index
 GET http://localhost:3000/playlists
+Authorization: Bearer {{jwt}}
 
 ### Get Playlists Show
-GET http://localhost:3000/playlists/1
+GET http://localhost:3000/playlists/7
+Authorization: Bearer {{jwt}}
 
 ### Post Playlists Create
 POST http://localhost:3000/playlists
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
@@ -14,7 +20,8 @@ Content-Type: application/json
 }
 
 ### Patch Playlists Update
-PATCH http://localhost:3000/playlists/6
+PATCH http://localhost:3000/playlists/7
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
@@ -22,7 +29,8 @@ Content-Type: application/json
 }
 
 ### Delete Playlists Destroy
-DELETE http://localhost:3000/playlists/5
+DELETE http://localhost:3000/playlists/7
+Authorization: Bearer {{jwt}}
 
 
 

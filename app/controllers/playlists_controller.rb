@@ -1,11 +1,11 @@
 class PlaylistsController < ApplicationController
   def index
-    playlists = Playlist.all
+    playlists = current_user.playlists
     render json: playlists.as_json
   end
 
   def show
-    playlist = Playlist.find_by(id: params[:id])
+    playlist = current_user.playlists.find_by(id: params[:id])
     render json: playlist.as_json
   end
 
@@ -15,6 +15,7 @@ class PlaylistsController < ApplicationController
       description: params[:description],
     )
     if playlist.save
+      UserPlaylist.create(user_id: current_user.id, playlist_id: playlist.id)
       render json: playlist.as_json
     else
       render json: { "error": playlist.errors.full_messages },
@@ -23,7 +24,7 @@ class PlaylistsController < ApplicationController
   end
 
   def update
-    playlist = Playlist.find_by(id: params[:id])
+    playlist = current_user.playlists.find_by(id: params[:id])
     playlist.name = params[:name] || playlist.name
     playlist.description = params[:description] || playlist.description
     if playlist.save
@@ -35,7 +36,7 @@ class PlaylistsController < ApplicationController
   end
 
   def destroy
-    playlist = Playlist.find_by(id: params[:id])
+    playlist = current_user.playlists.find_by(id: params[:id])
     playlist.destroy
     render json: { "message": "Playlist successfully deleted." }
   end
