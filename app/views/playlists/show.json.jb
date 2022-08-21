@@ -5,5 +5,11 @@
   name: @playlist.name,
   description: @playlist.description,
   songs: @playlist.songs,
-  users: @playlist.users
+  users: @playlist.users.map do |user|
+  {
+    id: user.id,
+    name: user.name,
+    email: user.email
+  }
+  end
 }
