@@ -12,7 +12,7 @@ class UserPlaylistsController < ApplicationController
   end
 
   def destroy
-    user_playlist = UserPlaylist.find_by(id: params[:id])
+    user_playlist = UserPlaylist.find_by(id: params[:id]) # find by user and playlist ids instead???
     user_playlist.destroy
     render json: { "message": "UserPlaylist successfully deleted." }
   end

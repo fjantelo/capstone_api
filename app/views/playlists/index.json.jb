@@ -1,0 +1,6 @@
+@playlists.map do |playlist|
+  {
+    id: playlist.id,
+    url: playlist_url(playlist, format: :json)
+  }
+end

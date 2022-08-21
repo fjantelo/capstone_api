@@ -7,14 +7,15 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    playlist = current_user.playlists.find_by(id: params[:id])
-    songs = playlist.songs
-    users = playlist.users
-    output = []
-    output << playlist
-    output << songs
-    output << users
-    render json: output.as_json
+    @playlist = current_user.playlists.find_by(id: params[:id])
+    # songs = playlist.songs
+    # users = playlist.users
+    # output = []
+    # output << playlist
+    # output << songs
+    # output << users
+    # render json: output.as_json
+    render :show
   end
 
   def create

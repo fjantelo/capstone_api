@@ -1,0 +1,9 @@
+{
+  id: @playlist.id,
+  created_at: @playlist.created_at,
+  updated_at: @playlist.updated_at,
+  name: @playlist.name,
+  description: @playlist.description,
+  songs: @playlist.songs,
+  users: @playlist.users
+}

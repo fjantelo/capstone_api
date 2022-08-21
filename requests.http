@@ -1,12 +1,12 @@
 ### Example JWT
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjEwMTQ4MTh9.slujmDPnsZvSNSVCXXBeFUosPcdPPU40ClGfLxaU6Ok
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjExMjkxMzd9.0SUt-OJXWTFmyCLYJ_Tzs4s5G9gF78un1NT2q7DqYas
 
 ### Get Playlists Index
 GET http://localhost:3000/playlists
 Authorization: Bearer {{jwt}}
 
 ### Get Playlists Show
-GET http://localhost:3000/playlists/8
+GET http://localhost:3000/playlists/8.json
 Authorization: Bearer {{jwt}}
 
 ### Post Playlists Create
@@ -85,7 +85,7 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "john@test.com",
+  "email": "alex@test.com",
   "password": "password"
 }
 
