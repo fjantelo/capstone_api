@@ -2,7 +2,7 @@
 @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjExMjkxMzd9.0SUt-OJXWTFmyCLYJ_Tzs4s5G9gF78un1NT2q7DqYas
 
 ### Get Playlists Index
-GET http://localhost:3000/playlists
+GET http://localhost:3000/playlists.json
 Authorization: Bearer {{jwt}}
 
 ### Get Playlists Show
@@ -74,8 +74,8 @@ POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "name": "John",
-  "email": "john@test.com",
+  "name": "Joe",
+  "email": "joe@test.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -85,7 +85,7 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "alex@test.com",
+  "email": "joe@test.com",
   "password": "password"
 }
 
