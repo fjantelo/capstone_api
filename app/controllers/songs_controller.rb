@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :authenticate_user
+  # before_action :authenticate_user
 
   # def index
   #   songs = Song.all
@@ -47,5 +47,11 @@ class SongsController < ApplicationController
     song = Song.find_by(id: params[:id])
     song.destroy
     render json: { "message": "Song successfully deleted." }
+  end
+
+  def search
+    puts Rails.application.credentials.youtube_api_key
+    response = HTTP.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=#{params[:query]}&type=video&key=#{Rails.application.credentials.youtube_api_key}")
+    render json: response.parse(:json)
   end
 end
