@@ -67,7 +67,7 @@ DELETE http://localhost:3000/songs/11
 Authorization: Bearer {{jwt}}
 
 ### Songs search
-GET http://localhost:3000/songs/search
+GET http://localhost:3000/songs/search?query=thriller
 Authorization: Bearer {{jwt}}
 
 
