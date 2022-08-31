@@ -50,7 +50,11 @@ class SongsController < ApplicationController
   end
 
   def search
-    response = HTTP.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=#{params[:query].gsub!(/\s/, "%")}&type=video&key=#{Rails.application.credentials.youtube_api_key}")
+    if params[:query].include?(" ")
+      response = HTTP.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=#{params[:query].gsub!(/\s/, "%")}&type=video&key=#{Rails.application.credentials.youtube_api_key}")
+    else
+      response = HTTP.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=#{params[:query]}&type=video&key=#{Rails.application.credentials.youtube_api_key}")
+    end
     render json: response.parse(:json)
   end
 end
