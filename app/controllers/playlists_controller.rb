@@ -1,5 +1,7 @@
 class PlaylistsController < ApplicationController
   before_action :authenticate_user
+  validates :name, presence: true
+  validates :description, presence: true
 
   def index
     playlists = current_user.playlists
