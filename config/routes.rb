@@ -26,5 +26,5 @@ Rails.application.routes.draw do
 
   #UserPlaylists routes
   post "/user_playlists" => "user_playlists#create"
-  delete "/user_playlists/:id" => "user_playlists#destroy"
+  delete "/user_playlists" => "user_playlists#destroy"
 end
