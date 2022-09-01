@@ -1,5 +1,5 @@
 ### Example JWT
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjIwNTcyNjd9.fI-e1rIb7vbVQOLVpSFZp7aHgBhTeOz0aDLmQOPdyCw
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjQ2NTQ3ODF9.wsy-bkyJCXhYMgRXZRvNrqlghsZZr3ReUVNLz1rLt14
 
 ### Get Playlists Index
 GET http://localhost:3000/playlists.json
@@ -111,5 +111,11 @@ Content-Type: application/json
 }
 
 ### Delete UserPlaylist
-DELETE http://localhost:3000/user_playlists/7
+DELETE http://localhost:3000/user_playlists
 Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "user_id": 3,
+  "playlist_id": 7
+}
