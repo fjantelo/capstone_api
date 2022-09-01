@@ -19,6 +19,8 @@ class SongsController < ApplicationController
       genre: params[:genre],
       url: params[:url],
       playlist_id: params[:playlist_id],
+      thumbnail: params[:thumbnail],
+      channel: params[:channel],
     )
     if song.save
       render json: song.as_json
