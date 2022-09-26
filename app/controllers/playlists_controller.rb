@@ -44,9 +44,9 @@ class PlaylistsController < ApplicationController
   #   end
   # end
 
-  # def destroy
-  #   playlist = current_user.playlists.find_by(id: params[:id])
-  #   playlist.destroy
-  #   render json: { "message": "Playlist successfully deleted." }
-  # end
+  def destroy
+    playlist = current_user.playlists.find_by(id: params[:id])
+    playlist.destroy
+    render json: { "message": "Playlist successfully deleted." }
+  end
 end
